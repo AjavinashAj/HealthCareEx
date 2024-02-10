@@ -1,5 +1,7 @@
 package com.avinashit.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,6 +32,13 @@ public class SpecializationController {
 		String message = "SPECIALIZATION  " + id + "  CREATED";
 		model.addAttribute("message", message);
 		return "specializationRegistration";
+	}
+
+	@GetMapping("/all")
+	public String showSpecData(Model model) {
+		List<Specialization> list = specializationService.allSpeciData();
+		model.addAttribute("list", list);
+		return "specializationData";
 	}
 
 }

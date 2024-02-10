@@ -2,6 +2,7 @@ package com.avinashit.services;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,11 +18,17 @@ public class SpecializationServiceImpl implements ISpecializationService {
 	@Override
 	public Long saveSpecialization(Specialization specialization) {
 		if (specialization != null) {
-              Long specId = specializationRepository.save(specialization).getSpecId();
-              return specId;
+			Long specId = specializationRepository.save(specialization).getSpecId();
+			return specId;
 		}
 		return null;
-		
+
+	}
+
+	@Override
+	public List<Specialization> allSpeciData() {
+
+		return specializationRepository.findAll();
 	}
 
 }
