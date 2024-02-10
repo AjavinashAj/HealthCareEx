@@ -34,7 +34,19 @@ public class SpecializationServiceImpl implements ISpecializationService {
 	@Override
 	public void deleteData(Long id) {
 		specializationRepository.deleteById(id);
-		
+
+	}
+
+	@Override
+	public Specialization editData(Long id) {
+		Specialization specialization = specializationRepository.findById(id).get();
+		return specialization;
+	}
+
+	@Override
+	public void updateSpecData(Specialization specialization) {
+		specializationRepository.save(specialization);
+
 	}
 
 }

@@ -12,4 +12,8 @@ public interface ISpecializationService {
 
 	void deleteData(Long id);
 
+	Specialization editData(Long id);
+
+	void updateSpecData(Specialization specialization);
+
 }

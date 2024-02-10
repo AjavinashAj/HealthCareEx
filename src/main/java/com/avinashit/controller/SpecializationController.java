@@ -48,4 +48,18 @@ public class SpecializationController {
 		return "redirect:all";
 	}
 
+	@GetMapping("/edit")
+	public String editData(@RequestParam Long id, Model model) {
+		Specialization specialization = specializationService.editData(id);
+		model.addAttribute("specialization", specialization);
+		return "specializationEdit";
+
+	}
+
+	@PostMapping("/update")
+	public String updateData(@ModelAttribute Specialization specialization) {
+		specializationService.updateSpecData(specialization);
+		return "redirect:all";
+	}
+
 }
