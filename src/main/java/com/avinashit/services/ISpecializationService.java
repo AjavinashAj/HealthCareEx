@@ -10,4 +10,6 @@ public interface ISpecializationService {
 
 	List<Specialization> allSpeciData();
 
+	void deleteData(Long id);
+
 }

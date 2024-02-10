@@ -31,4 +31,10 @@ public class SpecializationServiceImpl implements ISpecializationService {
 		return specializationRepository.findAll();
 	}
 
+	@Override
+	public void deleteData(Long id) {
+		specializationRepository.deleteById(id);
+		
+	}
+
 }

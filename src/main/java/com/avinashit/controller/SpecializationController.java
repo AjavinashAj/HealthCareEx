@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.avinashit.entity.Specialization;
 import com.avinashit.services.ISpecializationService;
@@ -39,6 +40,12 @@ public class SpecializationController {
 		List<Specialization> list = specializationService.allSpeciData();
 		model.addAttribute("list", list);
 		return "specializationData";
+	}
+
+	@GetMapping("/delete")
+	public String deleteData(@RequestParam Long id) {
+		specializationService.deleteData(id);
+		return "redirect:all";
 	}
 
 }
